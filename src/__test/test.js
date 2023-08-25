@@ -17,9 +17,10 @@ const handler = test.each(dataList);
 
 handler('testing changing values', (arr, value) => {
   const team1 = new Team(2);
-  for (const item of team1) {
-    expect(arr).toContain(item[value]);
-  }
+  const members = Array.from(team1);
+  members.forEach((element) => {
+    expect(arr).toContain(element[value]);
+  });
 });
 
 const dataList1 = [
@@ -31,7 +32,8 @@ const handler1 = test.each(dataList1);
 
 handler1('testing constant values', (num, value) => {
   const team1 = new Team(2);
-  for (const item of team1) {
-    expect(item[value]).toBe(num);
-  }
+  const members = Array.from(team1);
+  members.forEach((element) => {
+    expect(element[value]).toBe(num);
+  });
 });
