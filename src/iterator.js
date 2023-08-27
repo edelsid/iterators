@@ -23,13 +23,15 @@ export default class Team {
 
   [Symbol.iterator]() {
     let index = 0;
+    const members = [];
 
     return {
       next: () => {
         if (index < this.size) {
           index += 1;
+          members.push(Team.fill());
           return {
-            value: Team.fill(),
+            value: members[index - 1],
             done: false,
           };
         }
